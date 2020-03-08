@@ -1,24 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import Search from './components/Search';
+import Results from './components/Results';
 
 function App() {
+
+  const [userInput, setUserInput] = useState("react");
+  const [repos, setRepos] = useState([]);
+
+  const handleInput = (e) => {
+    setUserInput(e.target.value);
+  }
+
+  const handleSearch = (e) => {
+    if (e.key === 'Enter') {
+    fetch(`https://api.github.com/search/repositories?q=${userInput}`)
+    .then(res => res.json())
+    .then(data => {  
+      setRepos(data.items);
+      console.log(data);
+    })
+    }
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Search 
+      handleInput={handleInput}
+      handleSearch={handleSearch}
+      />
+      <Results repos={repos}/>
     </div>
   );
 }

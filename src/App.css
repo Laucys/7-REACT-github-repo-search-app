@@ -1,38 +1,49 @@
+body {
+  background-image: linear-gradient(to bottom right, #1d1d1de6, #1d1d1de6), url("https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1955&q=80");
+  
+}
+
 .App {
-  text-align: center;
+  width: 80%;
+  margin: 30px auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.search {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 40px;
 }
 
-.App-link {
-  color: #61dafb;
+.searchbox {
+  padding: 20px;
+  width: 30%;
+  border: 1px solid #999;
+  border-radius: 3px;
+ 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.results {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.result-box {
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #999;
+  margin-top: 20px;
+  border-radius: 3px;
+  opacity: 0.9;
+}
+
+.name {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.name a:link,
+.name a:visited {
+  color: #111;
+  cursor: pointer;
+  
 }
